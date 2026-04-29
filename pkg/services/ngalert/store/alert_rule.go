@@ -831,6 +831,9 @@ func (st DBstore) ListAlertRulesByGroup(ctx context.Context, query *ngmodels.Lis
 				NamespaceUID: converted.NamespaceUID,
 				RuleGroup:    converted.RuleGroup,
 			}
+			if ngmodels.IsNoGroupRuleGroup(converted.RuleGroup) {
+				key.RuleID = converted.ID
+			}
 			if query.SortByFullpath {
 				key.FolderFullpath = converted.FolderFullpath
 			}
@@ -870,24 +873,47 @@ func (st DBstore) ListAlertRulesByGroup(ctx context.Context, query *ngmodels.Lis
 func buildGroupCursorCondition(sess *xorm.Session, c ngmodels.GroupCursor) *xorm.Session {
 	// We need to handle this here otherwise we end up checking rule_group > "no_group_for_rule..."
 	// and skipping everything
+	isNoGroupRule := ngmodels.IsNoGroupRuleGroup(c.RuleGroup)
 	ruleGroup := c.RuleGroup
-	if ngmodels.IsNoGroupRuleGroup(ruleGroup) {
+	if isNoGroupRule {
 		ruleGroup = ""
 	}
 
 	if c.FolderFullpath != "" {
-		return sess.And(
-			"((folder_fullpath > ?) OR (folder_fullpath = ? AND namespace_uid > ?) OR (folder_fullpath = ? AND namespace_uid = ? AND rule_group > ?))",
+		sql := `(folder_fullpath > ?)
+			OR (folder_fullpath = ? AND namespace_uid > ?)
+			OR (folder_fullpath = ? AND namespace_uid = ? AND rule_group > ?)
+		`
+
+		args := []any{
 			c.FolderFullpath,
 			c.FolderFullpath, c.NamespaceUID,
 			c.FolderFullpath, c.NamespaceUID, ruleGroup,
-		)
+		}
+
+		if isNoGroupRule {
+			sql += " OR (folder_fullpath = ? AND namespace_uid = ? AND rule_group = '' AND id > ?)"
+			args = append(args, c.FolderFullpath, c.NamespaceUID, c.RuleID)
+		}
+
+		return sess.And("("+sql+")", args...)
 	}
+
 	// fallback to previous cursor condition if folder fullpath is not available, this means that pagination will be less efficient as it cannot take advantage of folder fullpath ordering, but at least it will work and not return duplicate or missing groups.
-	return sess.And(
-		"((namespace_uid > ?) OR (namespace_uid = ? AND rule_group > ?))",
-		c.NamespaceUID, c.NamespaceUID, ruleGroup,
-	)
+	sql := `(namespace_uid > ?)
+		OR (namespace_uid = ? AND rule_group > ?)`
+	args := []any{
+		c.NamespaceUID,
+		c.NamespaceUID, ruleGroup,
+	}
+
+	if isNoGroupRule {
+		sql += " OR (namespace_uid = ? AND rule_group = '' AND id > ?)"
+		args = append(args, c.NamespaceUID, c.RuleID)
+	}
+
+	return sess.And("("+sql+")", args...)
+
 }
 
 func shouldIncludeRule(rule *ngmodels.AlertRule, query *ngmodels.ListAlertRulesExtendedQuery, groupsMap map[string]struct{}) bool {

@@ -1019,6 +1019,7 @@ type GroupCursor struct {
 	FolderFullpath string `json:"f,omitempty"`
 	NamespaceUID   string `json:"n"`
 	RuleGroup      string `json:"g"`
+	RuleID         int64  `json:"h"`
 }
 
 func EncodeGroupCursor(c GroupCursor) string {
