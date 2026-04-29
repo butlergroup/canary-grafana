@@ -965,4 +965,8 @@ const (
 	// FlagGrafanaMeticulousAIRecorder
 	// Enable Meticulous AI session recorder for automated UI test generation
 	FlagGrafanaMeticulousAIRecorder = "grafana.meticulousAIRecorder"
+
+	// FlagAlertingV0ReceiversAsLegacy
+	// When disabled convert legacy Alertmanager receivers to Grafana model
+	FlagAlertingV0ReceiversAsLegacy = "alerting.v0ReceiversAsLegacy"
 )
