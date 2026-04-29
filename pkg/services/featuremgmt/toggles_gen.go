@@ -962,7 +962,7 @@ const (
 	// Route any calls to legacy correlations endpoints to call through to app platform
 	FlagGrafanaCorrelationsSkipLegacy = "grafana.correlationsSkipLegacy"
 
-	// FlagAlertingV0ReceiversAsLegacy
-	// When disabled convert legacy Alertmanager receivers to Grafana model
-	FlagAlertingV0ReceiversAsLegacy = "alerting.v0ReceiversAsLegacy"
+	// FlagGrafanaMeticulousAIRecorder
+	// Enable Meticulous AI session recorder for automated UI test generation
+	FlagGrafanaMeticulousAIRecorder = "grafana.meticulousAIRecorder"
 )

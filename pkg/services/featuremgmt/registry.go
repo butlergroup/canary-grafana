@@ -3078,6 +3078,15 @@ var (
 			Expression:  "false",
 		},
 		{
+			Name:         "grafana.meticulousAIRecorder",
+			Description:  "Enable Meticulous AI session recorder for automated UI test generation",
+			Stage:        FeatureStageExperimental,
+			Owner:        grafanaDatavizSquad,
+			Expression:   "false",
+			HideFromDocs: true,
+			Generate:     Generate{React: true, Go: true},
+		},
+		{
 			Name:        "alerting.v0ReceiversAsLegacy",
 			Description: "When disabled convert legacy Alertmanager receivers to Grafana model",
 			Stage:       FeatureStageExperimental,
