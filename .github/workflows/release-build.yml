@@ -474,7 +474,7 @@ jobs:
           name: artifacts-packages-${{ matrix.name }}
           path: dist
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@7e10951aea186e886cef2f1a25a7bbf4e593d710
+        uses: docker/setup-qemu-action@e9a73d053822dd261763972e27a1731c06462d91
         with:
           image: docker.io/tonistiigi/binfmt:qemu-v10.2.1-65
       - name: Set up Docker Buildx
@@ -573,7 +573,7 @@ jobs:
           name: artifacts-packages-${{ matrix.name }}
           path: dist
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@7e10951aea186e886cef2f1a25a7bbf4e593d710
+        uses: docker/setup-qemu-action@e9a73d053822dd261763972e27a1731c06462d91
         with:
           image: docker.io/tonistiigi/binfmt:qemu-v10.2.1-65
       - name: Set up Docker Buildx
