@@ -473,7 +473,7 @@ require (
 	github.com/gophercloud/gophercloud/v2 v2.9.0 // indirect
 	github.com/gopherjs/gopherjs v1.17.2 // indirect
 	github.com/grafana/jsonparser v0.0.0-20241004153430-023329977675 // indirect
-	github.com/grafana/nanogit v0.13.0 // indirect
+	github.com/grafana/nanogit v1.0.0 // indirect
 	github.com/grafana/regexp v0.0.0-20240518133315-a468a5bfb3bc // indirect
 	github.com/grafana/sqlds/v5 v5.1.1 // indirect
 	github.com/hashicorp/consul/api v1.31.2 // indirect
