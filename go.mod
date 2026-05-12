@@ -315,7 +315,7 @@ require (
 	cloud.google.com/go/iam v1.5.3 // indirect
 	cloud.google.com/go/longrunning v0.8.0 // indirect
 	cloud.google.com/go/monitoring v1.24.3 // indirect
-	cuelang.org/go v0.11.1 // indirect
+	cuelang.org/go v0.16.1 // indirect
 	github.com/Azure/azure-sdk-for-go/sdk/internal v1.11.2 // indirect
 	github.com/Azure/azure-sdk-for-go/sdk/keyvault/internal v0.7.1 // indirect
 	github.com/Azure/go-ansiterm v0.0.0-20250102033503-faa5f7b0171c // indirect
@@ -700,7 +700,9 @@ require (
 )
 
 require (
+	github.com/emicklei/proto v1.14.3 // indirect
 	github.com/pb33f/ordered-map/v2 v2.3.1 // indirect
+	github.com/protocolbuffers/txtpbfmt v0.0.0-20260217160748-a481f6a22f94 // indirect
 	github.com/santhosh-tekuri/jsonschema/v6 v6.0.2 // indirect
 	go.yaml.in/yaml/v4 v4.0.0-rc.2 // indirect
 	k8s.io/streaming v0.36.0 // indirect
