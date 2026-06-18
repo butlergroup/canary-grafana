@@ -1,17 +1,17 @@
 module github.com/grafana/grafana/apps/dashvalidator
 
-go 1.26.2
+go 1.26.3
 
 require (
 	github.com/grafana/authlib/types v0.0.0-20260427145542-9c256e2dbcb2
 	github.com/grafana/grafana v6.1.6+incompatible
-	github.com/grafana/grafana-app-sdk v0.54.0
-	github.com/grafana/grafana-app-sdk/logging v0.53.2
+	github.com/grafana/grafana-app-sdk v0.56.2
+	github.com/grafana/grafana-app-sdk/logging v0.54.1
 	github.com/grafana/grafana/pkg/apimachinery v0.0.0
 	github.com/prometheus/prometheus v0.303.1
 	github.com/stretchr/testify v1.11.1
 	golang.org/x/sync v0.20.0
-	k8s.io/apimachinery v0.36.0
+	k8s.io/apimachinery v0.36.1
 	k8s.io/kube-openapi v0.0.0-20260317180543-43fb72c5454a
 )
 
@@ -268,15 +268,15 @@ require (
 	go.uber.org/mock v0.6.0 // indirect
 	go.yaml.in/yaml/v2 v2.4.3 // indirect
 	go.yaml.in/yaml/v3 v3.0.4 // indirect
-	golang.org/x/crypto v0.50.0 // indirect
+	golang.org/x/crypto v0.52.0 // indirect
 	golang.org/x/exp v0.0.0-20260312153236-7ab1446f8b90 // indirect
 	golang.org/x/mod v0.35.0 // indirect
-	golang.org/x/net v0.53.0 // indirect
+	golang.org/x/net v0.55.0 // indirect
 	golang.org/x/oauth2 v0.36.0 // indirect
-	golang.org/x/sys v0.43.0 // indirect
+	golang.org/x/sys v0.45.0 // indirect
 	golang.org/x/telemetry v0.0.0-20260409153401-be6f6cb8b1fa // indirect
-	golang.org/x/term v0.42.0 // indirect
-	golang.org/x/text v0.36.0 // indirect
+	golang.org/x/term v0.43.0 // indirect
+	golang.org/x/text v0.37.0 // indirect
 	golang.org/x/time v0.15.0 // indirect
 	golang.org/x/tools v0.44.0 // indirect
 	golang.org/x/tools/godoc v0.1.0-deprecated // indirect
@@ -285,7 +285,7 @@ require (
 	gonum.org/v1/gonum v0.17.0 // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20260401024825-9d38bb4040a9 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20260406210006-6f92a3bedf2d // indirect
-	google.golang.org/grpc v1.80.0 // indirect
+	google.golang.org/grpc v1.81.0 // indirect
 	google.golang.org/protobuf v1.36.12-0.20260120151049-f2248ac996af // indirect
 	gopkg.in/alexcesaro/quotedprintable.v3 v3.0.0-20150716171945-2caba252f4dc // indirect
 	gopkg.in/evanphx/json-patch.v4 v4.13.0 // indirect
@@ -296,10 +296,10 @@ require (
 	gopkg.in/telebot.v3 v3.3.8 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
-	k8s.io/api v0.36.0 // indirect
+	k8s.io/api v0.36.1 // indirect
 	k8s.io/apiextensions-apiserver v0.36.0 // indirect
 	k8s.io/apiserver v0.36.0 // indirect
-	k8s.io/client-go v0.36.0 // indirect
+	k8s.io/client-go v0.36.1 // indirect
 	k8s.io/component-base v0.36.0 // indirect
 	k8s.io/klog/v2 v2.140.0 // indirect
 	k8s.io/utils v0.0.0-20260210185600-b8788abfbbc2 // indirect
